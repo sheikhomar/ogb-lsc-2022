@@ -18,6 +18,14 @@ python-versions = ">=3.5.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "colorama"
+version = "0.4.4"
+description = "Cross-platform colored terminal text."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
 name = "cycler"
 version = "0.11.0"
 description = "Composable style cycles"
@@ -72,6 +80,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "littleutils"
+version = "0.2.2"
+description = "Small personal collection of python utility functions"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "llvmlite"
 version = "0.38.1"
 description = "lightweight wrapper around basic LLVM functionality"
@@ -117,6 +133,36 @@ description = "NumPy is the fundamental package for array computing with Python.
 category = "main"
 optional = false
 python-versions = ">=3.8"
+
+[[package]]
+name = "ogb"
+version = "1.3.3"
+description = "Open Graph Benchmark"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = ">=1.16.0"
+outdated = ">=0.2.0"
+pandas = ">=0.24.0"
+scikit-learn = ">=0.20.0"
+six = ">=1.12.0"
+torch = ">=1.6.0"
+tqdm = ">=4.29.0"
+urllib3 = ">=1.24.0"
+
+[[package]]
+name = "outdated"
+version = "0.2.1"
+description = "Check if a version of a PyPI package is outdated"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+littleutils = "*"
+requests = "*"
 
 [[package]]
 name = "packaging"
@@ -335,6 +381,23 @@ typing-extensions = "*"
 scipy = ["scipy"]
 
 [[package]]
+name = "tqdm"
+version = "4.64.0"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
 name = "typing-extensions"
 version = "4.2.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -358,7 +421,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.10"
-content-hash = "2c5ea2457c1a01ebccbc08494f9731896a9ace9fbb0c9f8ad4450cd72e231cd2"
+content-hash = "2e3765acb4c8efbd754c15682c1c1256ae415120386d1347ff41185b53813394"
 
 [metadata.files]
 certifi = [
@@ -368,6 +431,10 @@ certifi = [
 charset-normalizer = [
     {file = "charset-normalizer-2.0.12.tar.gz", hash = "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597"},
     {file = "charset_normalizer-2.0.12-py3-none-any.whl", hash = "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"},
+]
+colorama = [
+    {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
+    {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 cycler = [
     {file = "cycler-0.11.0-py3-none-any.whl", hash = "sha256:3a27e95f763a428a739d2add979fa7494c912a32c17c4c38c4d5f082cad165a3"},
@@ -429,6 +496,9 @@ kiwisolver = [
     {file = "kiwisolver-1.4.2-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0e8afdf533b613122e4bbaf3c1e42c2a5e9e2d1dd3a0a017749a7658757cb377"},
     {file = "kiwisolver-1.4.2-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:42f6ef9b640deb6f7d438e0a371aedd8bef6ddfde30683491b2e6f568b4e884e"},
     {file = "kiwisolver-1.4.2.tar.gz", hash = "sha256:7f606d91b8a8816be476513a77fd30abe66227039bd6f8b406c348cb0247dcc9"},
+]
+littleutils = [
+    {file = "littleutils-0.2.2.tar.gz", hash = "sha256:e6cae3a4203e530d51c9667ed310ffe3b1948f2876e3d69605b3de4b7d96916f"},
 ]
 llvmlite = [
     {file = "llvmlite-0.38.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:a7dd2bd1d6406e7789273e3f8a304ed5d9adcfaa5768052fca7dc233a857be98"},
@@ -550,6 +620,14 @@ numpy = [
     {file = "numpy-1.22.4-cp39-cp39-win_amd64.whl", hash = "sha256:f0725df166cf4785c0bc4cbfb320203182b1ecd30fee6e541c8752a92df6aa32"},
     {file = "numpy-1.22.4-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0791fbd1e43bf74b3502133207e378901272f3c156c4df4954cad833b1380207"},
     {file = "numpy-1.22.4.zip", hash = "sha256:425b390e4619f58d8526b3dcf656dde069133ae5c240229821f01b5f44ea07af"},
+]
+ogb = [
+    {file = "ogb-1.3.3-py3-none-any.whl", hash = "sha256:eb2c46a9255679389fd7aee8c7bd58f10eb04b93f92bc5416d523d3a2c6e0080"},
+    {file = "ogb-1.3.3.tar.gz", hash = "sha256:599fdf5c3aee48c21b32d69d0b4e0a50f92fee7ff5cbb53fbca4fd57739818be"},
+]
+outdated = [
+    {file = "outdated-0.2.1-py3-none-any.whl", hash = "sha256:177e381857c10c410dc643b48ace8753ab977d5ae39642297a7f76eb4a3c1c8e"},
+    {file = "outdated-0.2.1.tar.gz", hash = "sha256:d92921a3d77bc56a6d39c0af321aad44b223906ebb6e8139996d26116baec573"},
 ]
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
@@ -761,6 +839,10 @@ torchvision = [
     {file = "torchvision-0.12.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:49ed7886b93b80c9733462edd06a07f8d4c6ea4d5bd2894e7268f7a3774f4f7d"},
     {file = "torchvision-0.12.0-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:b93a767f44e3933cb3b01a6fe9727db54590f57b7dac09d5aaf15966c6c151dd"},
     {file = "torchvision-0.12.0-cp39-cp39-win_amd64.whl", hash = "sha256:edab05f7ba9f648c00435b384ffdbd7bde79a3b8ea893813fb50f6ccf28b1e76"},
+]
+tqdm = [
+    {file = "tqdm-4.64.0-py2.py3-none-any.whl", hash = "sha256:74a2cdefe14d11442cedf3ba4e21a3b84ff9a2dbdc6cfae2c34addb2a14a5ea6"},
+    {file = "tqdm-4.64.0.tar.gz", hash = "sha256:40be55d30e200777a307a7585aee69e4eabb46b4ec6a4b4a5f2d9f11e7d5408d"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
