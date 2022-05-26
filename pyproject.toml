@@ -6,7 +6,12 @@ authors = ["Omar Ali Sheikh <sheikhomar@users.noreply.github.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.8.10"
+numba = "^0.55.2"
+pandas = "^1.4.2"
+seaborn = "^0.11.2"
+scikit-learn = "^1.1.1"
+scipy = "^1.8.1"
 
 [tool.poetry.dev-dependencies]
 
