@@ -1,4 +1,4 @@
-# Repo for OGB Large-Scale Challenge
+# Repo for Open Graph Benchmark Large-Scale Challenge (OGB-LSC)
 
 ## Getting Started
 
